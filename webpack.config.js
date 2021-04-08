@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 
 // Mode-based variables -- if it grows much larger, split into
 // webpack.common webpack.dev webpack.prod => merge => webpack.config.js
@@ -53,6 +55,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp|avif)$/i,
+        exclude: /node_modules/,
         type: "asset",
         // "asset" parses resournces under 8kb into js, rest as sep output files
         // "asset/resource" = all sep files in output
@@ -94,10 +97,12 @@ module.exports = {
       // appName: null,
       // }
     }),
+    // new BundleAnalyzerPlugin(),
   ],
   resolve: {
     extensions: ["*", ".js", ".jsx"],
+    fallback: {
+      "stream": false
+    }
   },
-  
-
 };

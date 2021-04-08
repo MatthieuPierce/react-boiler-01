@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+  --primary-color: 	hsl(210, 33%, 9%);
+  --secondary-color: hsla(0, 0%, 98%, 1);
+  --tertiary-color: #d2d3d5;
+  --hot-color: #d14124;
+  --cool-color: #20aa3f;
+  --mark-stroke-color: var(--secondary-color);
+  --line-stroke-color: var(--primary-color);
+  --primary-color-fade: hsla(210, 33%, 9%, 0.7);
+  /* --bg-color: hsla(0, 0%, 98%, 1); */
+}
+
+
+body {
+  background: var(--primary-color);
+  color: var(--primary-color);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+   overflow: hidden;
+}
+
+#container {
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  overflow: hidden;
+  position: relative; 
+
+}
+
+#chart {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+article {
+  background: var(--primary-color);
+  padding: 0.2rem;
+  margin: 1rem 0 0 0;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+
+}
+
+.legend .legend-title {
+  font-size: 1rem;
+}
+
+/* foreignObject {
+  height: 100%;
+  width: 100%;
+} */
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, h2 {
+   /* background: linear-gradient(45deg, darkgreen, hsl(120, 40%, 50%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; */
+  color: var(--secondary-color);
+  padding: 0 0.5rem;
+  width: 100%;
+
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 1rem 1rem 0.5rem;
+ }
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0 1rem 0.5rem;
+ }
+
+text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  color: var(--primary-color);
+}
+
+#chart-container {
+  /* filter: drop-shadow(0rem 5rem 10rem var(--primary-color)); */
+  /* box-shadow: 0rem 0rem 20rem 5rem var(--primary-color); */
+  overflow: hidden;
+  padding: 0;
+  /* padding-bottom calc trick for resizing svg: 100% * height / width ratio */
+  padding-bottom: calc(100% * 3 / 4);
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  z-index: 2;
+}
+
+#chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+#tooltip {
+  /* background-color: hsla(0, 0%, 98%, 0.2); */
+  /* backdrop-filter: blur(15px); */
+  border-color: var(--secondary-color);
+  border-radius: 1px;
+  border-style: solid;
+  border-width: 2px; 
+  box-sizing: border-box;
+  color: var(--secondary-color);
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: minmax(min-content, 1fr) minmax(100px, 100px);
+  grid-template-areas:  "name category"
+                        "name value";
+  font-size: 1rem;
+  padding: 0.5rem;
+  position: absolute;
+  align-items: center;
+  place-content: start;
+  text-align: start;
+  
+}
+
+#tooltip p {
+  box-sizing: border-box;
+  text-shadow: 1px 1px 1px var(--primary-color);
+  margin: 0;
+  font-size: 1rem;
+  /* padding: 0 15px;  */
+}
+
+#tooltip p.tooltip-name {
+  grid-area: name;
+  font-size: 1.2rem;
+}
+
+#tooltip p.tooltip-category {
+  grid-area: category;
+}
+
+
+
+#tooltip p.tooltip-value {
+  grid-area: value;
+}
+
+#tooltip p.tooltip-category,  #tooltip p.tooltip-value {
+  font-size: 0.8rem;
+}
+
+g.leaf-group:hover rect, g.legend-mark-group:hover rect {
+  fill-opacity: 1;
+  opacity: 1;
+  color: var(--secondary-color);
+}
+
+g.leaf-group:hover p, g.legend-mark-group:hover text {
+  /* fill-opacity: 1; */
+  color: var(--secondary-color);
+  text-shadow: 1px 1px 1px var(--primary-color-fade);
+  fill: var(--secondary-color);
+
+
+}
+
+.units-sold {
+  color: var(--primary-color-fade);
+  font-weight: lighter;
+}
+
+.legend-label {
+  font-weight: 700;
+}

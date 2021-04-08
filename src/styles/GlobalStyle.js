@@ -8,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     /* margin: 0;
     padding: 0; */
     --primary-color: #101820;
-    --secondary-color: #e2efd8;
-
+    --secondary-color: white;
+    /* --secondary-color: #e2efd8; */
     background-color: var(--secondary-color);
     box-sizing: border-box;
     color: var(--primary-color);

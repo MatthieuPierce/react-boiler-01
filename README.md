@@ -23,6 +23,12 @@ Getting something heavy but capable up fast.
   1. HtmlWebpackPlugin
     1. title
     2. any other custom fields
+5. Github Secrets && Actions
+  1. FTP_USERNAME
+  2. FTP_SERVER
+  3. FTP_PASSWORD
+6. main.yml server-dir:
+7. optionally, delete node_modules, npm install
 
 ## Pruning
 Several redundant features for pruning:
